@@ -94,7 +94,7 @@ const { connect, disconnect } = useVoiceClient({
 
 ## Getting Started
 
-1. Sign up at [itannix.com](https://itannix.com) and create a workspace
+1. Sign up at [app.itannix.com](https://app.itannix.com) and create a workspace
 2. Generate a workspace API key in Settings → Workspace
 3. Create a client in the dashboard
 4. Install the SDK for your framework
