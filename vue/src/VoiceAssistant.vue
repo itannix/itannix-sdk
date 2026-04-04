@@ -8,6 +8,7 @@ interface Props {
   clientId: string;
   clientSecret: string;
   serverUrl?: string;
+  appSource?: string;
 }
 
 interface Emits {
@@ -26,6 +27,7 @@ const options: UseVoiceClientOptions = {
   clientId: computed(() => props.clientId),
   clientSecret: computed(() => props.clientSecret),
   serverUrl: computed(() => props.serverUrl),
+  appSource: computed(() => props.appSource),
   onTranscript: (transcript) => emit('transcript', transcript),
   onAssistantMessage: (text, done) => emit('assistantMessage', text, done),
   onFunctionCall: (name, args, callId) => emit('functionCall', name, args, callId),

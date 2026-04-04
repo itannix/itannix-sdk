@@ -10,6 +10,8 @@ export interface VoiceClientOptions {
   clientId: string;
   clientSecret: string;
   serverUrl?: string;
+  /** When set, sent as X-App-Source on session + WebRTC requests (client tools / multi-app workspaces). */
+  appSource?: string;
 }
 
 export interface FunctionCallEvent {
@@ -52,6 +54,7 @@ export class VoiceClient {
   private clientId: string;
   private clientSecret: string;
   private serverUrl: string;
+  private appSource?: string;
   private peerConnection: RTCPeerConnection | null = null;
   private dataChannel: RTCDataChannel | null = null;
   private session: SessionResponse | null = null;
@@ -68,20 +71,26 @@ export class VoiceClient {
     this.clientId = options.clientId;
     this.clientSecret = options.clientSecret;
     this.serverUrl = options.serverUrl ?? 'https://api.itannix.com';
+    this.appSource = options.appSource;
   }
 
   async connect(): Promise<void> {
     this.updateStatus('connecting');
 
     // 1. Create session
+    const sessionHeaders: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'X-Workspace-Key': this.workspaceKey,
+      'X-Client-Id': this.clientId,
+      'X-Client-Secret': this.clientSecret
+    };
+    if (this.appSource) {
+      sessionHeaders['X-App-Source'] = this.appSource;
+    }
+
     const sessionResponse = await fetch(`${this.serverUrl}/v1/realtime/sessions`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-Workspace-Key': this.workspaceKey,
-        'X-Client-Id': this.clientId,
-        'X-Client-Secret': this.clientSecret
-      },
+      headers: sessionHeaders,
       body: JSON.stringify({
         modalities: ['text', 'audio']
       })
@@ -169,14 +178,19 @@ export class VoiceClient {
     });
 
     // 7. Send SDP to server
+    const sdpHeaders: Record<string, string> = {
+      'Content-Type': 'application/sdp',
+      'X-Workspace-Key': this.workspaceKey,
+      'X-Client-Id': this.clientId,
+      'X-Client-Secret': this.clientSecret
+    };
+    if (this.appSource) {
+      sdpHeaders['X-App-Source'] = this.appSource;
+    }
+
     const sdpResponse = await fetch(`${this.serverUrl}/v1/realtime`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/sdp',
-        'X-Workspace-Key': this.workspaceKey,
-        'X-Client-Id': this.clientId,
-        'X-Client-Secret': this.clientSecret
-      },
+      headers: sdpHeaders,
       body: this.peerConnection.localDescription!.sdp
     });
 

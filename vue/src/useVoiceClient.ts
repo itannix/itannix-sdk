@@ -7,6 +7,7 @@ export interface UseVoiceClientOptions {
   clientId: MaybeRefOrGetter<string>;
   clientSecret: MaybeRefOrGetter<string>;
   serverUrl?: MaybeRefOrGetter<string | undefined>;
+  appSource?: MaybeRefOrGetter<string | undefined>;
   onTranscript?: (transcript: string) => void;
   onAssistantMessage?: (text: string, done: boolean) => void;
   onFunctionCall?: (name: string, args: Record<string, unknown>, callId: string) => void;
@@ -26,6 +27,7 @@ export function useVoiceClient(options: UseVoiceClientOptions): UseVoiceClientRe
     clientId,
     clientSecret,
     serverUrl,
+    appSource,
     onTranscript,
     onAssistantMessage,
     onFunctionCall,
@@ -46,7 +48,8 @@ export function useVoiceClient(options: UseVoiceClientOptions): UseVoiceClientRe
       workspaceKey: toValue(workspaceKey),
       clientId: toValue(clientId),
       clientSecret: toValue(clientSecret),
-      serverUrl: toValue(serverUrl)
+      serverUrl: toValue(serverUrl),
+      appSource: toValue(appSource)
     });
 
     client.onStatusChange = (newStatus) => {

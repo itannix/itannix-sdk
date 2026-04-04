@@ -7,6 +7,7 @@ export interface VoiceAssistantProps {
   clientId: string;
   clientSecret: string;
   serverUrl?: string;
+  appSource?: string;
   onStatusChange?: (status: ConnectionStatus) => void;
   onTranscript?: (transcript: string) => void;
   onAssistantMessage?: (text: string, done: boolean) => void;
@@ -28,6 +29,7 @@ export const VoiceAssistant = forwardRef<VoiceAssistantRef, VoiceAssistantProps>
       clientId,
       clientSecret,
       serverUrl,
+      appSource,
       onStatusChange,
       onTranscript,
       onAssistantMessage,
@@ -40,6 +42,7 @@ export const VoiceAssistant = forwardRef<VoiceAssistantRef, VoiceAssistantProps>
       clientId,
       clientSecret,
       serverUrl,
+      appSource,
       onTranscript,
       onAssistantMessage,
       onFunctionCall,

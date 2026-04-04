@@ -6,6 +6,7 @@ export interface UseVoiceClientOptions {
   clientId: string;
   clientSecret: string;
   serverUrl?: string;
+  appSource?: string;
   onTranscript?: (transcript: string) => void;
   onAssistantMessage?: (text: string, done: boolean) => void;
   onFunctionCall?: (name: string, args: Record<string, unknown>, callId: string) => void;
@@ -25,6 +26,7 @@ export function useVoiceClient(options: UseVoiceClientOptions): UseVoiceClientRe
     clientId,
     clientSecret,
     serverUrl,
+    appSource,
     onTranscript,
     onAssistantMessage,
     onFunctionCall,
@@ -64,7 +66,8 @@ export function useVoiceClient(options: UseVoiceClientOptions): UseVoiceClientRe
         workspaceKey,
         clientId,
         clientSecret,
-        serverUrl
+        serverUrl,
+        appSource
       });
 
       clientRef.current.onStatusChange = (newStatus) => {
@@ -84,7 +87,7 @@ export function useVoiceClient(options: UseVoiceClientOptions): UseVoiceClientRe
       };
     }
     return clientRef.current;
-  }, [workspaceKey, clientId, clientSecret, serverUrl]);
+  }, [workspaceKey, clientId, clientSecret, serverUrl, appSource]);
 
   // Cleanup on unmount
   useEffect(() => {
