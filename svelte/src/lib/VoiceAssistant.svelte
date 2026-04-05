@@ -8,6 +8,8 @@
 	export let clientId: string;
 	export let clientSecret: string;
 	export let serverUrl: string = 'https://api.itannix.com';
+	/** When set, sent as X-App-Source on session + WebRTC requests (client tools / multi-app workspaces). */
+	export let appSource: string | undefined = undefined;
 
 	// Event dispatcher
 	const dispatch = createEventDispatcher<{
@@ -22,7 +24,7 @@
 	let client: VoiceClient | null = null;
 
 	function createClient(): VoiceClient {
-		client = new VoiceClient({ workspaceKey, clientId, clientSecret, serverUrl });
+		client = new VoiceClient({ workspaceKey, clientId, clientSecret, serverUrl, appSource });
 		client.onStatusChange = (status) => dispatch('statusChange', status);
 		client.onTranscript = (transcript) => dispatch('transcript', transcript);
 		client.onAssistantMessage = (text, done) => dispatch('assistantMessage', { text, done });
