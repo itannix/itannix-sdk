@@ -1,6 +1,6 @@
 # @itannix/svelte
 
-Svelte SDK for the ItanniX Voice AI platform. Add real-time voice interactions to your Svelte app with a single component.
+Svelte SDK for the Itannix Voice AI platform. Add real-time voice interactions to your Svelte app with a single component.
 
 ## Installation
 
@@ -60,7 +60,7 @@ npm install @itannix/svelte
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `workspaceKey` | `string` | required | Your workspace API key from workspace settings |
-| `clientId` | `string` | required | Your ItanniX client ID |
+| `clientId` | `string` | required | Your Itannix client ID |
 | `clientSecret` | `string` | required | Your client secret |
 | `serverUrl` | `string` | `'https://api.itannix.com'` | API server URL |
 

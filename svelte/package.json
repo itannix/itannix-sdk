@@ -1,7 +1,7 @@
 {
   "name": "@itannix/svelte",
   "version": "0.1.3",
-  "description": "Svelte SDK for ItanniX Voice AI platform",
+  "description": "Svelte SDK for Itannix Voice AI platform",
   "type": "module",
   "svelte": "./dist/index.js",
   "types": "./dist/index.d.ts",

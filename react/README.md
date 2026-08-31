@@ -1,6 +1,6 @@
 # @itannix/react
 
-React SDK for the ItanniX Voice AI platform. Add real-time voice interactions to your React app with a simple hook or component.
+React SDK for the Itannix Voice AI platform. Add real-time voice interactions to your React app with a simple hook or component.
 
 ## Installation
 
@@ -94,7 +94,7 @@ function App() {
 | Option | Type | Required | Description |
 |--------|------|----------|-------------|
 | `workspaceKey` | `string` | Yes | Your workspace API key from workspace settings |
-| `clientId` | `string` | Yes | Your ItanniX client ID |
+| `clientId` | `string` | Yes | Your Itannix client ID |
 | `clientSecret` | `string` | Yes | Your client secret |
 | `serverUrl` | `string` | No | API server URL (default: `https://api.itannix.com`) |
 | `onTranscript` | `(text: string) => void` | No | Called when user speech is transcribed |
@@ -116,7 +116,7 @@ function App() {
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspaceKey` | `string` | Yes | Your workspace API key from workspace settings |
-| `clientId` | `string` | Yes | Your ItanniX client ID |
+| `clientId` | `string` | Yes | Your Itannix client ID |
 | `clientSecret` | `string` | Yes | Your client secret |
 | `serverUrl` | `string` | No | API server URL |
 | `onStatusChange` | `(status) => void` | No | Called when connection status changes |

@@ -1,6 +1,6 @@
-# ItanniX Voice SDK
+# Itannix Voice SDK
 
-Official SDKs for the ItanniX Voice AI platform. Add real-time voice interactions to your app with a few lines of code.
+Official SDKs for the Itannix Voice AI platform. Add real-time voice interactions to your app with a few lines of code.
 
 ## Packages
 

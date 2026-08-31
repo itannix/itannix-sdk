@@ -1,6 +1,6 @@
 # @itannix/vue
 
-Vue SDK for the ItanniX Voice AI platform. Add real-time voice interactions to your Vue app with a simple composable or component.
+Vue SDK for the Itannix Voice AI platform. Add real-time voice interactions to your Vue app with a simple composable or component.
 
 ## Installation
 
@@ -101,7 +101,7 @@ function handleAssistantMessage(text: string, done: boolean) {
 | Option | Type | Required | Description |
 |--------|------|----------|-------------|
 | `workspaceKey` | `string` | Yes | Your workspace API key from workspace settings |
-| `clientId` | `string` | Yes | Your ItanniX client ID |
+| `clientId` | `string` | Yes | Your Itannix client ID |
 | `clientSecret` | `string` | Yes | Your client secret |
 | `serverUrl` | `string` | No | API server URL (default: `https://api.itannix.com`) |
 | `onTranscript` | `(text: string) => void` | No | Called when user speech is transcribed |
@@ -123,7 +123,7 @@ function handleAssistantMessage(text: string, done: boolean) {
 | Prop | Type | Required | Description |
 |------|------|----------|-------------|
 | `workspaceKey` | `string` | Yes | Your workspace API key from workspace settings |
-| `clientId` | `string` | Yes | Your ItanniX client ID |
+| `clientId` | `string` | Yes | Your Itannix client ID |
 | `clientSecret` | `string` | Yes | Your client secret |
 | `serverUrl` | `string` | No | API server URL |
 
