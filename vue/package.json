@@ -1,6 +1,6 @@
 {
   "name": "@itannix/vue",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Vue SDK for Itannix Voice AI platform",
   "type": "module",
   "main": "./dist/index.js",
